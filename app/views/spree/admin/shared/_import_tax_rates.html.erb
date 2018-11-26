@@ -1,0 +1,8 @@
+<div id="tax-rate-file-section">
+  <%= form_tag import_tax_rates_admin_tax_rates_path, {:id => 'tax-rate-file-form', multipart: true}  do %>
+    <label class="btn btn-success" for= "file-field">
+      Import Tax Rates
+    </label>
+    <%= file_field_tag :tax_rates_file, id: 'tax-rate-file', accept: ".csv", id: "file-field"  %>
+  <% end %>
+</div>

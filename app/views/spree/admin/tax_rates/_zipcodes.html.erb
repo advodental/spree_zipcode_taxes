@@ -1,0 +1,25 @@
+<h4><%= "#{plural_resource_name(Spree::TaxRate)} ZipCodes" %></h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <%= Spree.t(:tax_region_name) %>
+      </th>
+      <th>
+        <%= Spree.t(:zip_code) %>
+      </th>
+      <th>
+        <%= Spree.t(:amount) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tax_rate.taxable_zipcodes.each do |taxable|%>
+      <tr>
+        <td><%= taxable.region_name %></td>
+        <td><%= taxable.zipcode %></td>
+        <td><%= taxable.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

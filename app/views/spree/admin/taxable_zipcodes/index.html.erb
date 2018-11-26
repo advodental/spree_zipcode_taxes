@@ -1,0 +1,29 @@
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:tax_rates), spree.admin_tax_rates_url %> /
+  <%= "#{@tax_rate.name}'s ZipCodes" %>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <%= Spree.t(:tax_region_name) %>
+      </th>
+      <th>
+        <%= Spree.t(:zip_code) %>
+      </th>
+      <th>
+        <%= Spree.t(:amount) %>
+      </th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tax_rate.taxable_zipcodes.each do |taxable|%>
+      <tr>
+        <td><%= taxable.region_name %></td>
+        <td><%= taxable.zipcode %></td>
+        <td><%= taxable.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
