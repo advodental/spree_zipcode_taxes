@@ -1,6 +1,6 @@
 # SpreeZipcodeTaxes
 
-Introduction goes here.
+SpreeZipcodeTaxes is Spree Commerce extention to have taxes based on zip code. We can import taxes for csv file and it will create tax category, tax rates & amount corresponding to zip codes. Tax category is marked as default to be taxable on all products and zone can be country or state based.
 
 ## Installation
 
@@ -19,7 +19,23 @@ Introduction goes here.
   bundle exec rails g spree_zipcode_taxes:install
   ```
 
-4. Restart your server
+4. Spree Zipcode Taxes Configuration
+-----
+  ```ruby
+    Spree::ZipcodeTax.configure do |config|
+      config.iso_name = 'US'
+      config.zone_name = 'North America'
+      config.tax_category_name = 'Tax'
+    end
+
+  ```
+
+create initializers file and copy above defaut configration and override it according to your usage.
+
+5. Check example csv to import tax rates is at ![alt example/tax_rate_zipcodes.csv](https://github.com/sourcecodepartners/spree_zipcode_taxes/blob/master/example/tax_rate_zipcodes.csv)
+
+
+6. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
 
