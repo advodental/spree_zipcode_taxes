@@ -9,11 +9,15 @@ module Spree
 
     # When it comes to computing shipments or line items: same same.
     def compute_shipment_or_line_item(item)
-      applied_tax = Spree::TaxableZipcode.find_by(id: item.order.tax_zipcode)
-      if rate.included_in_price
-        deduced_total_by_rate(item.pre_tax_amount, applied_tax)
+      applied_tax = Spree::TaxableZipcode.find_by(zipcode: item.order.tax_zipcode)
+      if applied_tax.present?
+        if rate.included_in_price
+          deduced_total_by_rate(item.pre_tax_amount, applied_tax)
+        else
+          round_to_two_places(item.discounted_amount * applied_tax.amount)
+        end
       else
-        round_to_two_places(item.discounted_amount * applied_tax.amount)
+        0
       end
     end
 
