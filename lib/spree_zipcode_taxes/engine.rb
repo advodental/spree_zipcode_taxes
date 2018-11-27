@@ -9,6 +9,10 @@ module SpreeZipcodeTaxes
       g.test_framework :rspec
     end
 
+    initializer 'spree_zipcode_taxes.calculators.tax_rates' do |app|
+      app.config.spree.calculators.tax_rates << Spree::Calculator::ZipCodeTax
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)

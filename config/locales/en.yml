@@ -4,3 +4,4 @@
 en:
   hello: "Hello world"
   import_tax_rates: 'Import Tax Rates'
+  zipcode_tax: 'ZipCode Tax'
