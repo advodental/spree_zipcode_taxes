@@ -32,7 +32,7 @@ SpreeZipcodeTaxes is Spree Commerce extention to have taxes based on zip code. W
 
 create initializers file and copy above defaut configration and override it according to your usage.
 
-5. Check example csv to import tax rates is at ![alt example/tax_rate_zipcodes.csv](https://github.com/sourcecodepartners/spree_zipcode_taxes/blob/master/example/tax_rate_zipcodes.csv)
+5. Check example csv to import tax rates is at [alt example/tax_rate_zipcodes.csv](https://github.com/sourcecodepartners/spree_zipcode_taxes/blob/master/example/tax_rate_zipcodes.csv)
 
 
 6. Restart your server
