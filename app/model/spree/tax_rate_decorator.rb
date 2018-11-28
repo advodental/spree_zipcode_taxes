@@ -1,4 +1,5 @@
 require_dependency 'spree/calculator'
+require 'csv'
 
 Spree::TaxRate.class_eval do
   include Spree::VatPriceCalculation
