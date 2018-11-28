@@ -1,0 +1,6 @@
+State,ZipCode,TaxRegionName,StateRate,EstimatedCombinedRate,EstimatedCountyRate,EstimatedCityRate,EstimatedSpecialRate,RiskLevel
+UT,84001,ALTAMONT,0.047,0.062,0.015,0,0,2
+UT,84002,DUCHESNE CO,0.047,0.062,0.015,0,0,1
+UT,84003,AMERICAN FORK,0.047,0.0685,0.008,0.011,0.0025,4
+CA,90001,LOS ANGELES COUNTY,0.047,0.0685,0.008,0.012,0.003,2
+
