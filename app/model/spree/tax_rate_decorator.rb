@@ -6,7 +6,7 @@ Spree::TaxRate.class_eval do
 
   def self.import(file)
     zone = Spree::Zone.find_by(name: Spree::ZipcodeTax.config[:zone_name])
-    country = Spree::Country.find_by(iso: Spree::ZipcodeTax.config[:iso_name])
+    country = Spree::Country.find_by(iso: Spree::ZipcodeTax.config[:country_iso_name])
     tax_category = Spree::TaxCategory.find_by(name: Spree::ZipcodeTax.config[:tax_category_name])
     unless tax_category
       tax_category = Spree::TaxCategory.create(name: Spree::ZipcodeTax.config[:tax_category_name], is_default: true)

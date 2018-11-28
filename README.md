@@ -23,7 +23,7 @@ SpreeZipcodeTaxes is Spree Commerce extention to have taxes based on zip code. W
 -----
   ```ruby
     Spree::ZipcodeTax.configure do |config|
-      config.iso_name = 'US'
+      config.country_iso_name = 'US'
       config.zone_name = 'North America'
       config.tax_category_name = 'Tax'
     end
