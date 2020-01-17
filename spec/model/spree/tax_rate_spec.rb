@@ -16,8 +16,7 @@ RSpec.describe Spree::TaxRate do
   context '#import tax rates' do
     it 'should import tax rates from csv' do
       sample_csv = File.open('././example/tax_rate_zipcodes.csv', 'r')
-
-      Spree::TaxRate.import(sample_csv)
+      Spree::TaxRateDecorator.import(sample_csv)
 
       expect(Spree::TaxRate.count).to eq(2)
       expect(Spree::TaxableZipcode.count).to eq(4)
@@ -32,7 +31,7 @@ RSpec.describe Spree::TaxRate do
 
   it 'should apply tax on order based on zip code' do
     sample_csv = File.open('././example/tax_rate_zipcodes.csv', 'r')
-    Spree::TaxRate.import(sample_csv)
+    Spree::TaxRateDecorator.import(sample_csv)
     order = OrderWalkthrough.up_to(:complete)
 
     expect(order.all_adjustments.first.label).to eq('UT 6.2%')

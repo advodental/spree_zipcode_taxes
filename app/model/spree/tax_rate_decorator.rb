@@ -1,9 +1,12 @@
 require_dependency 'spree/calculator'
 require 'csv'
 
-Spree::TaxRate.class_eval do
+module Spree::TaxRateDecorator
   include Spree::VatPriceCalculation
-  has_many :taxable_zipcodes, dependent: :destroy
+
+  def self.prepended(base)
+    base.has_many :taxable_zipcodes, dependent: :destroy
+  end
 
   def self.import(file)
     zone = Spree::Zone.find_by(name: Spree::ZipcodeTax.config[:zone_name])
@@ -71,8 +74,10 @@ Spree::TaxRate.class_eval do
   def amount_for_label
     return '' unless show_rate_in_label?
     ' ' + ActiveSupport::NumberHelper::NumberToPercentageConverter.convert(
-      applied_tax_amount * 100,
+      amount * 100,
       locale: I18n.locale
     )
   end
 end
+
+Spree::TaxRate.prepend Spree::TaxRateDecorator
